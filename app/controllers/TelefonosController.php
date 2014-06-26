@@ -19,6 +19,10 @@ class TelefonosController extends BaseController {
 				}
 
 
+				$busqueda = new Busqueda;
+				$busqueda->busqueda = $q;
+				$busqueda->save();
+
 				$categoriatelefonos = DB::table('categoriatelefonos');
 				if ($q<>"") {
 					$categoriatelefonos = $categoriatelefonos->where('categoriatelefono', 'like', '%' . $q . '%')->first();
